@@ -1,0 +1,40 @@
+!-- heredamos del template base-->
+
+{% extends 'prueba/base.html' %}
+
+<!-- cargamos los recursos estaticos-->
+{% load static %}
+
+<!-- identificamos el contenido dinamico del titulo-->
+{% block title %}Listado de contactos{% endblock %}
+
+<!-- identificamos el contenido dinamico del imagen de fondo-->
+{% block background %}{% static 'prueba/img/portfolio-bg.jpg' %}{% endblock %}
+
+
+<!-- identificamos el contenido dinamico del header-->
+{% block headers %}
+    <h1>Contacto</h1>
+    <span class="subheading">Listas de contacto</span>
+{% endblock %}
+
+
+<!-- mostramos los proyectos de la base de datos-->
+{% block content %}
+
+<!-- usamos el template tag for que nos permite iterar y mostrar atributos-->
+    {% for contact in contacts %} 
+        <!-- Contacto -->
+        <div class="row contact">   
+            <div class="col-lg-7 col-md-8">
+                <h2 class="section-heading title">{{contact.name}}</h2> 
+                <p>{{contact.email}}</p>  
+                <p>{{contact.content}}</p>
+                <p>{{contact.pub_date}}</p>
+                <p>{{contact.project.title}}</p>
+              
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+

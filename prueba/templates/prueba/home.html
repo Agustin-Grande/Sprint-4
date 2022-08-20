@@ -1,0 +1,29 @@
+
+<!-- agregamos el bloque extends que tomara el html base-->
+{% extends 'prueba/base.html' %}
+
+<!-- Agregamos el contenido estatico-->
+
+{% load static %}
+
+<!-- Agregamos el titulo de la home -->
+{% block title %}ITBANK Gestion de Proyectos - Inicio {% endblock %}
+
+<!-- Agregamos la imagen de fondo -->
+{% block background %}{% static 'prueba/img/home-bg.jpg' %}{% endblock %}
+
+<!-- Agregamos la informacion que queremos en el header-->
+
+{% block headers %}
+    <h1>Sitio de Gestión de Proyectos</h1>
+    <span class="subheading">Area de Tecnología de la Información</span>
+{% endblock %}
+
+<!-- indicamos que lo de abajao se dibuje despues del menu armado en la base-->
+{% block content %}
+
+<!-- agregamos dentro de la pagina el contador de visitas-->
+<p>Ha visitado esta pagina {{ num_visits }}{% if num_visits == 1 %} vez {% else %} veces {% endif %}.</p>
+
+{% endblock %}
+
